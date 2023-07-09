@@ -7,6 +7,7 @@ import Toppings from './components/Toppings';
 import Order from './components/Order';
 import React,{ useState ,useEffect} from 'react';
 import Page404 from './components/Page404';
+import ProtectedRoutes from './components/ProtectedRoutes';
 
 
 function App() {
@@ -15,6 +16,12 @@ function App() {
     const storedData = localStorage.getItem('myData');
     return storedData ? JSON.parse(storedData) : { base: '', Toppings: [] };
   });
+
+  const [isGood,setIsGood] = useState(false);
+
+  const HandleGood = (good) => {
+    setIsGood(good)
+  }
 
   const setBase = (base) => {
     setData((prev) => {
@@ -25,8 +32,6 @@ function App() {
     })
     
   }
-
-  console.log("DAta",data);
 
   const setToppings = (toppings) => {
     setData((prev) => {
@@ -46,9 +51,13 @@ function App() {
       <Header />
     <Routes>
       <Route path='/' element={<Home />}/>
-      <Route path='/base' element={<Base addBase={setBase}/>}/>
+      <Route path='/base' element={<Base good={HandleGood} addBase={setBase}/>}/>
+
+      <Route element={<ProtectedRoutes isGood={isGood}/>}>
       <Route path='/toppings' element={<Toppings addTopings={setToppings}/>}/>
       <Route path='/order' element={<Order data={data}/>}/>
+      </Route>
+
       <Route path='*' element={<Page404 />}/>
     </Routes>
     </div>

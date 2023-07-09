@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link , useNavigate} from "react-router-dom";
 
-function Base({addBase}) {
+function Base({addBase,good}) {
 
 
   const bases = ["Classic", "Thin & Crispy", "Thick Crust"];
@@ -29,6 +29,7 @@ function Base({addBase}) {
     for (let x = 0; x < selectedValues.length; x++) {
       if (selectedValues[x] === true) {
         addBase(bases[x]);
+        good(true);
         return true;
       }
     }
