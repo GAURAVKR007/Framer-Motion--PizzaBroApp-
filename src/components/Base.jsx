@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Base() {
   const bases = ["Classic", "Thin & Crispy", "Thick Crust"];
@@ -75,19 +76,20 @@ function Base() {
         <div style={{position: "absolute" ,bottom: "-100px" , left: "-10px"}}>
         {  (selected[0] || selected[1] || selected[2]) &&
           <div style={{ width: "400px",marginTop: "25px", }}>
-            <button
+            <Link to="/toppings"
               style={{
-                padding: "20px 80px",
-                fontSize: "1.4rem",
+                padding: "15px 80px",
+                fontSize: "2.1rem",
                 fontWeight: "bold",
                 background: "transparent",
                 color: "white",
                 border: "2px solid white",
                 borderRadius: "50px",
+                textDecoration: "none"
               }}
             >
               Next
-            </button>
+            </Link>
           </div>
         }
         </div>

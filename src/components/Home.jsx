@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -22,19 +23,20 @@ function Home() {
         >
           Welcome to Pizza Bro
         </h1>
-        <button
+        <Link to="/base"
           style={{
             padding: "20px 80px",
-            fontSize: "1.4rem",
+            fontSize: "1.7rem",
             fontWeight: "bold",
             background: "transparent",
             color: "white",
             border: "2px solid white",
+            textDecoration: "none",
             borderRadius: "50px",
           }}
         >
           Create Your Pizza
-        </button>
+        </Link>
       </div>
     </>
   );

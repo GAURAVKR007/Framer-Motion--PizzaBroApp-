@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import { Link } from 'react-router-dom';
 
 function Toppings() {
 
@@ -91,19 +92,20 @@ function Toppings() {
           <div style={{position: "absolute" ,bottom: "-100px" , left: "-10px"}}>
           {  check() &&
             <div style={{ width: "400px",marginTop: "25px", }}>
-              <button
+              <Link to="/order"
                 style={{
-                  padding: "20px 80px",
-                  fontSize: "1.4rem",
+                  padding: "15px 80px",
+                  fontSize: "2.1rem",
                   fontWeight: "bold",
                   background: "transparent",
                   color: "white",
                   border: "2px solid white",
                   borderRadius: "50px",
+                  textDecoration: "none"
                 }}
               >
                 Order
-              </button>
+              </Link>
             </div>
           }
           </div>

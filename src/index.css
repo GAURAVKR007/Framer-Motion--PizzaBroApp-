@@ -23,6 +23,10 @@ body {
   fill: transparent;
 } */
 
+svg:hover {
+  cursor: url("../src/assets/fork.svg"), auto;
+}
+
 svg path {
   /* stroke: white; */
   stroke-width: 30px;
