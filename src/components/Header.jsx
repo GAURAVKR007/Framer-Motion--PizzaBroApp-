@@ -2,11 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Header() {
+
+
   return (
     <>
     <div style={{display: "flex", justifyContent: "flex-start", alignItems: "flex-end"}}>
       {/* <img src={Pizza} alt="logo" style={{ height: '125px', width: '125px' }} /> */}
-      <Link to="/">
+      <Link to="/" >
       <div className='svg' style={{width: "125px", zIndex: "-500", overflow: "visible"}}>
       <svg width="100%" height="100%" viewBox="0 0 1024 1024" class="icon"  version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g id='hello2'>

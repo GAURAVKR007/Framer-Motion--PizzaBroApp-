@@ -2,9 +2,10 @@ import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
 import Home from './Home'
 
-function ProtectedRoutes({isGood}) {
+function ProtectedRoutes({data}) {
+    console.log(data);
   return (
-    isGood ? <Outlet /> : <Navigate to="/" />
+    data.isGood ? <Outlet /> : <Navigate to="/" />
   )
 }
 

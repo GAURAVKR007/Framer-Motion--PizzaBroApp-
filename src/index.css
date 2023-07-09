@@ -6,7 +6,7 @@
 
 body {
   background: rgb(176,0,244);
-  /* background: radial-gradient(circle, rgba(176,0,244,1) 5%, rgba(170,44,218,1) 100%); */
+  background: radial-gradient(circle, rgba(176,0,244,1) 5%, rgba(170,44,218,1) 100%);
   padding: 20px 30px;
 }
 

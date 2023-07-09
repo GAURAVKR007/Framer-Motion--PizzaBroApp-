@@ -1,5 +1,5 @@
 import './App.css';
-import {Routes, Route} from "react-router-dom"
+import {Routes, Route, useLocation} from "react-router-dom"
 import Header from './components/Header';
 import Home from './components/Home';
 import Base from './components/Base';
@@ -14,15 +14,27 @@ function App() {
 
   const [data, setData] = useState(() => {
     const storedData = localStorage.getItem('myData');
-    return storedData ? JSON.parse(storedData) : { base: '', Toppings: [] };
+    return storedData ? JSON.parse(storedData) : { base: '', Toppings: [], isGood: false };
   });
 
-  const [isGood,setIsGood] = useState(false);
-
   const HandleGood = (good) => {
-    setIsGood(good)
+    setData((prev) => {
+      return {
+        ...prev,
+        isGood : good
+      }
+    })
   }
 
+  const location = useLocation()
+
+  useEffect(()=> {
+    if(location.pathname === "/"){
+      HandleGood(false)
+      console.log("Location",location.pathname);
+    }
+  },[location.pathname])
+  
   const setBase = (base) => {
     setData((prev) => {
       return {
@@ -53,7 +65,7 @@ function App() {
       <Route path='/' element={<Home />}/>
       <Route path='/base' element={<Base good={HandleGood} addBase={setBase}/>}/>
 
-      <Route element={<ProtectedRoutes isGood={isGood}/>}>
+      <Route element={<ProtectedRoutes data={data}/>}>
       <Route path='/toppings' element={<Toppings addTopings={setToppings}/>}/>
       <Route path='/order' element={<Order data={data}/>}/>
       </Route>
