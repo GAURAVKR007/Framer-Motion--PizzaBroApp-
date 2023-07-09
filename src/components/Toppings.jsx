@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom';
 
-function Toppings() {
+function Toppings({addTopings}) {
 
     const toppings = ["mushrooms","peppers","onions","olivers","extra chesse", " tomatoes"];
 
@@ -25,8 +25,23 @@ function Toppings() {
           }
         }
         return false;
-      };
+    };
       
+    const handleChange = () => {
+        const toppingArr = [];
+
+        const selectedValues = Object.values(selected);
+      
+        for (let x = 0; x < selectedValues.length; x++) {
+          if (selectedValues[x] === true) {
+            toppingArr.push(toppings[x]);
+          }
+        }
+
+        addTopings(toppingArr)
+
+    }
+    
 
     
   
@@ -91,7 +106,7 @@ function Toppings() {
           <div style={{ width: "400px", lineHeight: "1.7", position: "relative" }}>{mapping()}
           <div style={{position: "absolute" ,bottom: "-100px" , left: "-10px"}}>
           {  check() &&
-            <div style={{ width: "400px",marginTop: "25px", }}>
+            <div style={{ width: "400px",marginTop: "25px", }} onClick={handleChange}>
               <Link to="/order"
                 style={{
                   padding: "15px 80px",

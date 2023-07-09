@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Base() {
+function Base({addBase}) {
   const bases = ["Classic", "Thin & Crispy", "Thick Crust"];
 
   const [selected, setSelected] = useState({
@@ -9,6 +9,29 @@ function Base() {
     1: false,
     2: false,
   });
+
+  const check = () => {
+    const selectedValues = Object.values(selected);
+  
+    for (let x = 0; x < selectedValues.length; x++) {
+      if (selectedValues[x] === true) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  const handleChange = () => {
+    const selectedValues = Object.values(selected);
+  
+    for (let x = 0; x < selectedValues.length; x++) {
+      if (selectedValues[x] === true) {
+        addBase(bases[x]);
+        return true;
+      }
+    }
+  }
+  
 
   const handleClick = (idx) => {
     if (selected[idx] == true) {
@@ -74,8 +97,8 @@ function Base() {
 
         <div style={{ width: "400px", lineHeight: "1.7", position: "relative" }}>{mapping()}
         <div style={{position: "absolute" ,bottom: "-100px" , left: "-10px"}}>
-        {  (selected[0] || selected[1] || selected[2]) &&
-          <div style={{ width: "400px",marginTop: "25px", }}>
+        {  check() &&
+          <div style={{ width: "400px",marginTop: "25px", }} onClick={handleChange}>
             <Link to="/toppings"
               style={{
                 padding: "15px 80px",
