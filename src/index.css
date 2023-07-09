@@ -1,13 +1,74 @@
-body {
+*{
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background: rgb(176,0,244);
+  /* background: radial-gradient(circle, rgba(176,0,244,1) 5%, rgba(170,44,218,1) 100%); */
+  padding: 20px 30px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+
+
+/* .svg {
+  stroke: white;
+  stroke-width: 30px;
+  animation: grow 3s linear infinite alternate;
+  fill: transparent;
+} */
+
+svg path {
+  /* stroke: white; */
+  stroke-width: 30px;
+  /* animation: grow 3s ease-in-out infinite alternate-reverse; */
+  /* fill: transparent; */
+  /* stroke-dashoffset: 2000; */
+  /* stroke-dasharray: 2000; */
+  /* transition: grow 1s ease ; */
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+svg {
+  z-index: 100;
+}
+
+#hello {
+  /* fill: black; */
+}
+
+#hello2 {
+  animation: grow 3s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes grow {
+  0% {
+    /* stroke-dashoffset: 0; */
+    /* transform: scale(0.5); */
+    /* transform: rotateZ(0); */
+    transform: translate(0,0);
+    
+    
+  }
+
+  50% {
+    /* stroke-dashoffset: 1000; */
+    /* transform: scale(0.7); */
+    /* transform: rotateZ(180deg); */
+    /* fill: linear-gradient(200deg,transparent ,#EBA824); */
+    /* transform: translate(-55px,40px); */
+  }
+
+  100% {
+    /* stroke-dashoffset: 2000; */
+    /* transform: scale(1); */
+    /* transform: rotateZ(360deg); */
+    transform: translate(-130px,100px);
+  }
 }
