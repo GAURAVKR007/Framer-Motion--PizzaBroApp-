@@ -1,7 +1,9 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link , useNavigate} from "react-router-dom";
 
 function Base({addBase}) {
+
+
   const bases = ["Classic", "Thin & Crispy", "Thick Crust"];
 
   const [selected, setSelected] = useState({
@@ -98,7 +100,7 @@ function Base({addBase}) {
         <div style={{ width: "400px", lineHeight: "1.7", position: "relative" }}>{mapping()}
         <div style={{position: "absolute" ,bottom: "-100px" , left: "-10px"}}>
         {  check() &&
-          <div style={{ width: "400px",marginTop: "25px", }} onClick={handleChange}>
+          <div style={{ width: "400px",marginTop: "25px", }}>
             <Link to="/toppings"
               style={{
                 padding: "15px 80px",
@@ -110,6 +112,7 @@ function Base({addBase}) {
                 borderRadius: "50px",
                 textDecoration: "none"
               }}
+              onClick={handleChange}
             >
               Next
             </Link>

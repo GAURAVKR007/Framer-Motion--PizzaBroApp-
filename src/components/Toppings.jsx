@@ -106,7 +106,7 @@ function Toppings({addTopings}) {
           <div style={{ width: "400px", lineHeight: "1.7", position: "relative" }}>{mapping()}
           <div style={{position: "absolute" ,bottom: "-100px" , left: "-10px"}}>
           {  check() &&
-            <div style={{ width: "400px",marginTop: "25px", }} onClick={handleChange}>
+            <div style={{ width: "400px",marginTop: "25px", }}>
               <Link to="/order"
                 style={{
                   padding: "15px 80px",
@@ -118,6 +118,7 @@ function Toppings({addTopings}) {
                   borderRadius: "50px",
                   textDecoration: "none"
                 }}
+                onClick={handleChange}
               >
                 Order
               </Link>
