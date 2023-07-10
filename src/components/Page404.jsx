@@ -2,6 +2,17 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
+const buttonVariants = {
+  hover: {
+    scale: 1.1,
+    transition : {
+      repeat: Infinity,
+      repeatType: "reverse",
+      duration: 0.27,
+    }
+  }
+}
+
 function Page404() {
 
   return (
@@ -15,17 +26,26 @@ function Page404() {
             <h1 style={{fontSize: "50px"}}>PAGE 404 ERROR [Page not Found]</h1>
             <Link to="/"
             style={{
-                padding: "15px 80px",
-                fontSize: "2.1rem",
-                fontWeight: "bold",
-                background: "transparent",
-                color: "white",
-                border: "2px solid white",
-                borderRadius: "50px",
                 textDecoration: "none"
               }}
             >
+
+              <motion.button
+              style={{
+              padding: "15px 80px",
+              fontSize: "2.1rem",
+              fontWeight: "bold",
+              background: "transparent",
+              color: "white",
+              border: "2px solid white",
+              cursor: "pointer",
+              borderRadius: "50px",}}
+
+                variants={buttonVariants}
+                whileHover="hover"
+              >
                 Home
+              </motion.button>
             </Link>
         </div>
         

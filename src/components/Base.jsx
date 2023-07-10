@@ -25,6 +25,14 @@ const nextButtonVariants = {
   visible: {
     x: 0,
     transition: {type: "spring", stiffness: 100}
+  },
+  hover: {
+    scale: 1.1,
+    transition : {
+      repeat: Infinity,
+      repeatType: "reverse",
+      duration: 0.27,
+    }
   }
 }
 
@@ -166,7 +174,7 @@ function Base({addBase,good}) {
               }}
 
               variants={nextButtonVariants}
-              whileHover={{scale: 1.1}}
+              whileHover="hover"
               >
               Next
               </motion.button>

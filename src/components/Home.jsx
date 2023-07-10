@@ -2,6 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
+const buttonVariants = {
+  hover: {
+    scale: 1.1,
+    transition : {
+      repeat: Infinity,
+      repeatType: "reverse",
+      duration: 0.27,
+    }
+  }
+}
+
 function Home() {
   return (
     <>
@@ -46,14 +57,10 @@ function Home() {
             cursor: "pointer"
           }}
 
-          animate={{x: [0,-20,-40,0]}} // Keyframes in Framer Motion
-
-          whileHover={{
-            scale: 1.1,
-            // textShadow: "0px 0px 8px rgb(255,255,255)",
-            // boxShadow: "0px 0px 8px rgb(255,255,255)",
-            
-          }}
+          animate={{x: [0,-20,-80,0]}} // Keyframes in Framer Motion
+          variants={buttonVariants}
+          whileHover="hover"
+          
           >
           Create Your Pizza
           </motion.button>

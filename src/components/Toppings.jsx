@@ -137,7 +137,14 @@ function Toppings({addTopings}) {
               animate={{x: 0}}
               initial={{x: "-100vw"}}
               transition={{type: "spring", stiffness: 100}}
-              whileHover={{scale: 1.1}}
+              whileHover={{
+                scale: 1.1,
+                transition: {
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  duration: 0.27
+                }
+              }}
                 >
                 Order
                 </motion.button>
