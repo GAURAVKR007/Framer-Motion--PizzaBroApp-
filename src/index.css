@@ -44,10 +44,6 @@ svg {
   z-index: 100;
 }
 
-#hello {
-  /* fill: black; */
-}
-
 #hello2 {
   animation: grow 3s ease-in-out infinite alternate-reverse;
 }

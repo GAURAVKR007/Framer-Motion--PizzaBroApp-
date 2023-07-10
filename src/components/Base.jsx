@@ -2,8 +2,44 @@ import React, { useState, useEffect } from "react";
 import { Link , useNavigate} from "react-router-dom";
 import { motion } from "framer-motion";
 
+const containerVariants = {
+  hidden : {
+    x: "100vw",
+    opacity : 0,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "spring", 
+      stiffness: 70,
+      delay: 0.1
+    }
+  }
+}
+
+const nextButtonVariants = {
+  hidden : {
+    x: "-100vw",
+  },
+  visible: {
+    x: 0,
+    transition: {type: "spring", stiffness: 100}
+  }
+}
+
 function Base({addBase,good}) {
 
+  // const containerVariants = {
+  //   hidden : {
+  //     x: "100vw",
+  //     opacity : 0,
+  //   },
+  //   visible: {
+  //     opacity: 1,
+  //     x: 0
+  //   }
+  // }
 
   const bases = ["Classic", "Thin & Crispy", "Thick Crust"];
 
@@ -94,9 +130,9 @@ function Base({addBase,good}) {
           color: "white",
         }}
 
-        initial={{ x: "100vw"}}
-        animate={{x: 0}}
-        transition={{type: "spring", delay: 0.1}}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
       >
         <div>
         <div>
@@ -129,9 +165,7 @@ function Base({addBase,good}) {
                 textDecoration: "none"
               }}
 
-              animate={{x: 0}}
-              initial={{x: "-100vw"}}
-              transition={{type: "spring", stiffness: 100}}
+              variants={nextButtonVariants}
               whileHover={{scale: 1.1}}
               >
               Next
