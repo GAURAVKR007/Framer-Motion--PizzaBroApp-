@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 function Home() {
   return (
     <>
-      <div
+      <motion.div
         style={{
           height: "75vh",
           display: "flex",
@@ -12,8 +13,13 @@ function Home() {
           justifyContent: "center",
           alignItems: "center",
         }}
+
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        transition={{ duration: 2}}
+        
       >
-        <h1
+        <motion.h1
           style={{
             margin: "20px",
             fontSize: "4rem",
@@ -22,8 +28,13 @@ function Home() {
           }}
         >
           Welcome to Pizza Bro
-        </h1>
+        </motion.h1>
         <Link to="/base"
+          style={{
+            textDecoration: "none",
+          }}
+        >
+          <motion.button 
           style={{
             padding: "20px 80px",
             fontSize: "1.7rem",
@@ -31,13 +42,17 @@ function Home() {
             background: "transparent",
             color: "white",
             border: "2px solid white",
-            textDecoration: "none",
             borderRadius: "50px",
           }}
-        >
+
+          animate={{
+
+          }}
+          >
           Create Your Pizza
+          </motion.button>
         </Link>
-      </div>
+      </motion.div>
     </>
   );
 }

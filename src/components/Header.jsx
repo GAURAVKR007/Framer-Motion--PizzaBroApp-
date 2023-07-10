@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 function Header() {
 
@@ -22,14 +23,22 @@ function Header() {
         
       </div>
       </Link>
-        <h1 style={{marginLeft: "30px", marginBottom: "20px", fontSize: "3rem", color: "white"}}>
+        <motion.h1 style={{marginLeft: "30px", marginBottom: "20px", fontSize: "3rem", color: "white"}}
+        animate={{y: 0}}
+        initial={{y: -250}}
+        transition={{delay: 0.2}}
+        >
             Pizza Bro
-        </h1>
+        </motion.h1>
         
     </div>
-    <div style={{display: "flex" , justifyContent: "flex-end"}}>
-    <hr  style={{width: "90%", }}/>
-    </div>
+    <motion.div style={{display: "flex" , justifyContent: "flex-end"}}
+    animate={{y: 0}}
+    initial={{y: -250}}
+    transition={{delay: 0.2, type: "spring",stiffness: 170}}
+    >
+    <hr  style={{width: "92%", }}/>
+    </motion.div>
     </>
   );
 }

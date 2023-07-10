@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function Page404() {
+
   return (
     <div style={{display: "flex", justifyContent: "center", alignItems: "center", color: "white", height: "75vh"}}>
         <div style={{lineHeight: "2.2", textAlign: "center"}}>
@@ -21,6 +22,7 @@ function Page404() {
                 Home
             </Link>
         </div>
+        
     </div>
   )
 }

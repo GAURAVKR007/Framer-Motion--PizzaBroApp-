@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link , useNavigate} from "react-router-dom";
+import { motion } from "framer-motion";
 
 function Base({addBase,good}) {
 
@@ -80,7 +81,7 @@ function Base({addBase,good}) {
 
   return (
     <>
-      <div
+      <motion.div
         style={{
           display: "flex",
           height: "75vh",
@@ -89,6 +90,10 @@ function Base({addBase,good}) {
           flexDirection: "column",
           color: "white",
         }}
+
+        initial={{ x: "100vw"}}
+        animate={{x: 0}}
+        transition={{type: "spring", delay: 0.4}}
       >
         <div>
         <div>
@@ -104,6 +109,12 @@ function Base({addBase,good}) {
           <div style={{ width: "400px",marginTop: "25px", }}>
             <Link to="/toppings"
               style={{
+                textDecoration: "none"
+              }}
+              onClick={handleChange}
+            >
+              <motion.button
+              style={{
                 padding: "15px 80px",
                 fontSize: "2.1rem",
                 fontWeight: "bold",
@@ -113,9 +124,13 @@ function Base({addBase,good}) {
                 borderRadius: "50px",
                 textDecoration: "none"
               }}
-              onClick={handleChange}
-            >
+
+              animate={{x: 0}}
+              initial={{x: "-100vw"}}
+              transition={{type: "spring", stiffness: 100}}
+              >
               Next
+              </motion.button>
             </Link>
           </div>
         }
@@ -123,7 +138,7 @@ function Base({addBase,good}) {
         </div>
         </div>
         
-      </div>
+      </motion.div>
 
       
     </>
