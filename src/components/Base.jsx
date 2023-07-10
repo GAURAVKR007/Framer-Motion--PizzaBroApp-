@@ -13,7 +13,6 @@ const containerVariants = {
     transition: {
       type: "spring", 
       stiffness: 70,
-      delay: 0.1
     }
   }
 }
@@ -141,6 +140,13 @@ function Base({addBase,good}) {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
+
+        exit={{
+          x: "-100vw",
+          transition: {
+            ease: "easeInOut"
+          }
+        }}
       >
         <div>
         <div>

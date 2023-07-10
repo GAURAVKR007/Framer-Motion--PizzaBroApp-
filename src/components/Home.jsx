@@ -28,7 +28,12 @@ function Home() {
         initial={{opacity: 0,scale: 0 }}
         animate={{opacity: 1, scale: 1}}
         transition={{ type: "spring", delay: 0.05, stiffness: 50}}
-        
+        exit={{
+          x: "-100vw",
+          transition: {
+            ease: "easeInOut"
+          }
+        }}
       >
         <motion.h1
           style={{

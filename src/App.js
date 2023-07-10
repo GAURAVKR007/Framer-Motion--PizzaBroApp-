@@ -5,9 +5,11 @@ import Home from './components/Home';
 import Base from './components/Base';
 import Toppings from './components/Toppings';
 import Order from './components/Order';
+import { AnimatePresence } from 'framer-motion';
 import React,{ useState ,useEffect} from 'react';
 import Page404 from './components/Page404';
 import ProtectedRoutes from './components/ProtectedRoutes';
+import { wait } from '@testing-library/user-event/dist/utils';
 
 
 function App() {
@@ -61,7 +63,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-    <Routes>
+      <AnimatePresence mode="wait">
+    <Routes location={location} key={location.key}>
       <Route path='/' element={<Home />}/>
       <Route path='/base' element={<Base good={HandleGood} addBase={setBase}/>}/>
 
@@ -72,6 +75,7 @@ function App() {
 
       <Route path='*' element={<Page404 />}/>
     </Routes>
+    </AnimatePresence>
     </div>
   );
 }

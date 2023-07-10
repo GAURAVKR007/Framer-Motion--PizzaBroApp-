@@ -17,9 +17,16 @@ function Page404() {
 
   return (
     <motion.div style={{display: "flex", justifyContent: "center", alignItems: "center", color: "white", height: "75vh"}}
-    initial={{height: 0}}
-    animate={{height: "75vh"}}
-    transition={{type: "tween", duration: 0.25}}
+    initial={{y: "-100vh"}}
+    animate={{y: 0}}
+    transition={{type: "spring", stiffness: 70}}
+
+    exit={{
+      y: "100vh",
+      transition: {
+        ease: "easeInOut"
+      }
+    }}
     >
         <div style={{lineHeight: "2.2", textAlign: "center"}}
         >
