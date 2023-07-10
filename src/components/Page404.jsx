@@ -1,11 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 function Page404() {
 
   return (
-    <div style={{display: "flex", justifyContent: "center", alignItems: "center", color: "white", height: "75vh"}}>
-        <div style={{lineHeight: "2.2", textAlign: "center"}}>
+    <motion.div style={{display: "flex", justifyContent: "center", alignItems: "center", color: "white", height: "75vh"}}
+    initial={{height: 0}}
+    animate={{height: "75vh"}}
+    transition={{type: "tween", duration: 0.25}}
+    >
+        <div style={{lineHeight: "2.2", textAlign: "center"}}
+        >
             <h1 style={{fontSize: "50px"}}>PAGE 404 ERROR [Page not Found]</h1>
             <Link to="/"
             style={{
@@ -23,7 +29,7 @@ function Page404() {
             </Link>
         </div>
         
-    </div>
+    </motion.div>
   )
 }
 

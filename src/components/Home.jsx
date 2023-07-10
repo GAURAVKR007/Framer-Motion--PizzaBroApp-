@@ -14,9 +14,9 @@ function Home() {
           alignItems: "center",
         }}
 
-        initial={{opacity: 0}}
-        animate={{opacity: 1}}
-        transition={{ duration: 0.5}}
+        initial={{opacity: 0,scale: 0 }}
+        animate={{opacity: 1, scale: 1}}
+        transition={{ type: "spring", delay: 0.05, stiffness: 50}}
         
       >
         <motion.h1

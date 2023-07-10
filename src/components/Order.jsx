@@ -1,4 +1,34 @@
 import React from 'react'
+import { motion } from 'framer-motion'
+
+const parentVariants = {
+    hidden: {
+        opacity: 0,
+        x: "100vw",
+    },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            type: "spring",
+            mass: 0.4,
+            damping: 8,
+            when: "beforeChildren",
+            staggerChildren: 0.4,
+        },
+    },
+};
+
+const childVariants = {
+    hidden: {
+        opacity: 0,
+    },
+    visible: {
+        opacity: 1,
+    },
+};
+
+
 function Order({data}) {
 
     const lists = () => {
@@ -11,16 +41,21 @@ function Order({data}) {
 
   return (
   <>
-    <div style={{color: "white",textAlign: "center",lineHeight: "1.7",display: 'flex',flexDirection: "column", height: "75vh", justifyContent: "center", alignItems: "center"}}>
-        <div>
+    <motion.div style={{color: "white",textAlign: "center",lineHeight: "1.7",display: 'flex',flexDirection: "column", height: "75vh", justifyContent: "center", alignItems: "center"}}
+    variants={parentVariants}
+    initial="hidden"
+    animate="visible"
+    >
+        <div
+        >
             <h2 style={{fontSize: "3rem"}}>Thank You for Your order :)</h2>
             <hr style={{marginBottom: "10px"}}/>
-            <h4 style={{fontSize: "2rem"}}>You ordered a {data.base} Pizza with :</h4>
-            <div style={{textAlign: "start",}}>
+            <motion.h4 style={{fontSize: "2rem"}} variants={childVariants}>You ordered a {data.base} Pizza with :</motion.h4>
+            <motion.div style={{textAlign: "start",}} variants={childVariants}>
                 {lists()}
-            </div>
+            </motion.div>
         </div>
-    </div>
+    </motion.div>
   </>
   )
 }

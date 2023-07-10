@@ -89,7 +89,7 @@ function Toppings({addTopings}) {
   
     return (
       <>
-        <div
+        <motion.div
           style={{
             display: "flex",
             height: "75vh",
@@ -98,6 +98,10 @@ function Toppings({addTopings}) {
             flexDirection: "column",
             color: "white",
           }}
+
+          initial={{x: "100vw", opacity: 0}}
+          animate= {{x: 0, opacity: 1}}
+          transition={{type: "spring", delay: 0.1, stiffness: 70}}
         >
           <div>
           <div>
@@ -144,7 +148,7 @@ function Toppings({addTopings}) {
           </div>
           </div>
           
-        </div>
+        </motion.div>
   
         
       </>
