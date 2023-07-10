@@ -46,6 +46,8 @@ function Home() {
             cursor: "pointer"
           }}
 
+          animate={{x: [0,-20,-40,0]}} // Keyframes in Framer Motion
+
           whileHover={{
             scale: 1.1,
             // textShadow: "0px 0px 8px rgb(255,255,255)",
