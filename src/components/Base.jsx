@@ -63,13 +63,16 @@ function Base({addBase,good}) {
 
   const ListItem = ({ item, onClick, idx }) => {
     return (
-      <li
-        style={{ listStyle: "none", fontSize: "30px", cursor: "pointer" }}
+      <motion.li
+        style={{ listStyle: "none", fontSize: "27px", cursor: "pointer" }}
         className={selected[idx] ? "bold" : ""}
         onClick={() => onClick(idx)}
+
+        whileHover={{scale:1.3, originX: 0, color: "#f8e112"}}
+        transition={{type: "spring",stiffness: 300}}
       >
         {selected[idx] ? ">" : ""} {item}
-      </li>
+      </motion.li>
     );
   };
 
@@ -93,7 +96,7 @@ function Base({addBase,good}) {
 
         initial={{ x: "100vw"}}
         animate={{x: 0}}
-        transition={{type: "spring", delay: 0.4}}
+        transition={{type: "spring", delay: 0.1}}
       >
         <div>
         <div>
@@ -116,18 +119,20 @@ function Base({addBase,good}) {
               <motion.button
               style={{
                 padding: "15px 80px",
-                fontSize: "2.1rem",
+                fontSize: "1.4rem",
                 fontWeight: "bold",
                 background: "transparent",
                 color: "white",
                 border: "2px solid white",
                 borderRadius: "50px",
+                cursor: "pointer",
                 textDecoration: "none"
               }}
 
               animate={{x: 0}}
               initial={{x: "-100vw"}}
               transition={{type: "spring", stiffness: 100}}
+              whileHover={{scale: 1.1}}
               >
               Next
               </motion.button>

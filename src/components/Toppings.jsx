@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 function Toppings({addTopings}) {
@@ -67,13 +68,16 @@ function Toppings({addTopings}) {
   
     const ListItem = ({ item, onClick, idx }) => {
       return (
-        <li
-          style={{ listStyle: "none", fontSize: "30px", cursor: "pointer" }}
+        <motion.li
+          style={{ listStyle: "none", fontSize: "27px", cursor: "pointer" }}
           className={selected[idx] ? "bold" : ""}
           onClick={() => onClick(idx)}
+
+          whileHover={{scale: 1.3,originX: 0, color:"#f8e112"}}
+          transition={{type: "spring", stiffness: 300}}
         >
           {selected[idx] ? ">" : ""} {item}
-        </li>
+        </motion.li>
       );
     };
   
@@ -109,18 +113,30 @@ function Toppings({addTopings}) {
             <div style={{ width: "400px",marginTop: "25px", }}>
               <Link to="/order"
                 style={{
-                  padding: "15px 80px",
-                  fontSize: "2.1rem",
-                  fontWeight: "bold",
-                  background: "transparent",
-                  color: "white",
-                  border: "2px solid white",
-                  borderRadius: "50px",
                   textDecoration: "none"
                 }}
                 onClick={handleChange}
               >
+                <motion.button
+                style={{
+                  padding: "15px 80px",
+                  fontSize: "1.4rem",
+                  fontWeight: "bold",
+                  background: "transparent",
+                  color: "white",
+                  border: "2px solid white",
+                  cursor: "pointer",
+                  borderRadius: "50px",
+                  textDecoration: "none"
+                }}
+
+              animate={{x: 0}}
+              initial={{x: "-100vw"}}
+              transition={{type: "spring", stiffness: 100}}
+              whileHover={{scale: 1.1}}
+                >
                 Order
+                </motion.button>
               </Link>
             </div>
           }
