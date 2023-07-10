@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 const parentVariants = {
@@ -29,7 +29,13 @@ const childVariants = {
 };
 
 
-function Order({data}) {
+function Order({data,setModal}) {
+
+    useEffect(()=>{
+        setTimeout(()=>{
+            setModal(true)
+        },5000)
+    },[])
 
     const lists = () => {
       return data.Toppings.map(item => {

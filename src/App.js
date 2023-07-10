@@ -9,14 +9,14 @@ import { AnimatePresence } from 'framer-motion';
 import React,{ useState ,useEffect} from 'react';
 import Page404 from './components/Page404';
 import ProtectedRoutes from './components/ProtectedRoutes';
-import { wait } from '@testing-library/user-event/dist/utils';
+import Modal from './components/Modal';
 
 
 function App() {
 
   const [data, setData] = useState(() => {
     const storedData = localStorage.getItem('myData');
-    return storedData ? JSON.parse(storedData) : { base: '', Toppings: [], isGood: false };
+    return storedData ? JSON.parse(storedData) : { base: '', Toppings: [], isGood: false, showModal: false, };
   });
 
   const HandleGood = (good) => {
@@ -24,6 +24,15 @@ function App() {
       return {
         ...prev,
         isGood : good
+      }
+    })
+  }
+
+  const handleModal = (modal) => {
+    setData((prev) => {
+      return{
+        ...prev,
+        showModal: modal
       }
     })
   }
@@ -63,14 +72,15 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <AnimatePresence mode="wait">
+      <Modal data={data} setModal={handleModal}/>
+      <AnimatePresence mode="wait" onExitComplete={()=> handleModal(false)}>
     <Routes location={location} key={location.key}>
       <Route path='/' element={<Home />}/>
       <Route path='/base' element={<Base good={HandleGood} addBase={setBase}/>}/>
 
       <Route element={<ProtectedRoutes data={data}/>}>
       <Route path='/toppings' element={<Toppings addTopings={setToppings}/>}/>
-      <Route path='/order' element={<Order data={data}/>}/>
+      <Route path='/order' element={<Order data={data} setModal={handleModal}/>}/>
       </Route>
 
       <Route path='*' element={<Page404 />}/>
