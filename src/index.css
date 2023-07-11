@@ -74,3 +74,14 @@ svg {
     transform: translate(-130px,100px);
   }
 }
+
+@media (max-width: 415px) {
+  .content {
+    font-size: 24px !important;
+    width: 85%;
+  }
+
+  .content h2 {
+    font-size: 27px !important;
+  }
+}

@@ -42,6 +42,7 @@ function App() {
   useEffect(()=> {
     if(location.pathname === "/"){
       HandleGood(false)
+      handleModal(false)
       console.log("Location",location.pathname);
     }
   },[location.pathname])

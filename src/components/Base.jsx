@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link , useNavigate} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const containerVariants = {
@@ -36,17 +36,6 @@ const nextButtonVariants = {
 }
 
 function Base({addBase,good}) {
-
-  // const containerVariants = {
-  //   hidden : {
-  //     x: "100vw",
-  //     opacity : 0,
-  //   },
-  //   visible: {
-  //     opacity: 1,
-  //     x: 0
-  //   }
-  // }
 
   const bases = ["Classic", "Thin & Crispy", "Thick Crust"];
 
@@ -137,6 +126,8 @@ function Base({addBase,good}) {
           color: "white",
         }}
 
+        
+
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -148,7 +139,7 @@ function Base({addBase,good}) {
           }
         }}
       >
-        <div>
+        <div className="content">
         <div>
           <h2 style={{ fontSize: "35px", width: "400px", }}>
             Step 1: Choose Your Base
@@ -180,6 +171,8 @@ function Base({addBase,good}) {
               }}
 
               variants={nextButtonVariants}
+              initial="hidden"
+              animate="visible"
               whileHover="hover"
               >
               Next

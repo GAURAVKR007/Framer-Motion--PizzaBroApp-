@@ -110,7 +110,7 @@ function Toppings({addTopings}) {
             }
           }}
         >
-          <div>
+          <div className='content'>
           <div>
             <h2 style={{ fontSize: "35px", width: "400px", }}>
               Step 2: Choose Toppings
